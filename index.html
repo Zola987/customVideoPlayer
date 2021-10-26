@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="dist/css/main.css" />
+        <title>Custom Video Player</title>
+    </head>
+    <body>
+        <section class="player">
+            <video
+                class="video"
+                src="video/Big_Buck_Bunny_first_23_seconds_1080p.ogv"
+                playsinline
+            ></video>
+            <div class="show_controls">
+                <div class="controls_container">
+                    <div class="progress_range">
+                        <div class="progress_bar"></div>
+                    </div>
+                    <div class="controls_group">
+                        <div class="controls_left">
+                            <div class="play_controls">
+                                <i
+                                    class="fas fa-play"
+                                    title="Play"
+                                    id="play_btn"
+                                ></i>
+                            </div>
+                            <div class="volume">
+                                <div class="volume_icon">
+                                    <i
+                                        class="fas fa-volume-up"
+                                        title="Mute"
+                                        id="volume_icon"
+                                    ></i>
+                                </div>
+                                <div class="volume_range">
+                                    <div class="volume_bar"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="controls_right">
+                            <div class="speed">
+                                <select
+                                    name="playbackRate"
+                                    class="player_speed"
+                                >
+                                    <option value="0.5">0.5 x</option>
+                                    <option value="0.75">0.75 x</option>
+                                    <option value="1" selected>1.0 x</option>
+                                    <option value="1.5">1.5 x</option>
+                                    <option value="2">2.0 x</option>
+                                </select>
+                            </div>
+
+                            <div class="time">
+                                <span class="time_elapsed"></span>
+                                <span class="middle_line">/</span>
+                                <span class="time_duration"></span>
+                            </div>
+
+                            <div class="fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="app.js"></script>
+    </body>
+</html>
