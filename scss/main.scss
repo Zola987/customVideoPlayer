@@ -1,0 +1,223 @@
+$primary-color: dodgerblue;
+$font-color: white;
+$background-color: gray;
+$border: black;
+$range-color: rgba(202, 202, 202, 0.5);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: $background-color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.fas {
+    color: $font-color;
+    font-size: 35px;
+}
+
+.player {
+    max-width: 480px;
+    min-width: 480px;
+    min-width: 853px;
+    max-width: 853px;
+    border: 5px solid $border;
+    border-radius: 10px;
+    background-color: $border;
+    position: relative;
+    cursor: pointer;
+
+    video {
+        border-radius: 5px;
+        width: 100%;
+        height: auto;
+    }
+
+    .show_controls {
+        width: 100%;
+        height: 30%;
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        cursor: default;
+
+        &:hover {
+            opacity: 1;
+            transition: all 0.2s ease-out;
+        }
+
+        .controls_container {
+            position: absolute;
+            bottom: -5px;
+            width: 100%;
+            height: 95px;
+            margin-top: -95px;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            z-index: 5;
+            display: flex;
+            justify-content: space-between;
+            opacity: 0;
+            transition: all 0.5s ease-out 2s;
+
+            &:hover {
+                opacity: 1;
+                transition: all 0.2s ease-out;
+            }
+
+            .progress_range {
+                height: 8px;
+                width: calc(100% - 30px);
+                background: $range-color;
+                margin: auto;
+                border-radius: 10px;
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                cursor: pointer;
+                transition: height 0.1s ease-in-out;
+                z-index: 10;
+
+                &:hover {
+                    height: 10px;
+                }
+
+                .progress_bar {
+                    background: $primary-color;
+                    width: 50%;
+                    height: 100%;
+                    border-radius: 10px;
+                    transition: all 0.5s ease;
+                }
+            }
+
+            .controls_group {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .controls_left {
+                    flex: 1;
+                    display: flex;
+                    overflow: hidden;
+                    position: relative;
+                    top: 40px;
+                    justify-content: flex-start;
+                    margin-left: 15px;
+
+                    .play_controls {
+                        margin-right: 15px;
+
+                        .fa-pause:hover {
+                            color: $primary-color;
+                            cursor: pointer;
+                        }
+
+                        .fa-play:hover {
+                            color: $primary-color;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .volume_icon {
+                        cursor: pointer;
+                    }
+
+                    .volume_range {
+                        height: 8px;
+                        width: 100px;
+                        background: $range-color;
+                        border-radius: 10px;
+                        position: relative;
+                        top: -21px;
+                        left: 50px;
+                        cursor: pointer;
+
+                        .volume_bar {
+                            background: $font-color;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 10px;
+                            transition: width 0.2s ease-in;
+                        }
+                    }
+                }
+
+                .controls_right {
+                    flex: 1;
+                    display: flex;
+                    overflow: hidden;
+                    position: relative;
+                    top: 40px;
+                    justify-content: flex-end;
+                    margin-right: 15px;
+
+                    .speed {
+                        margin-right: 15px;
+                        position: relative;
+                        top: 10px;
+
+                        select {
+                            appearance: none;
+                            background-color: transparent;
+                            color: $font-color;
+                            border: none;
+                            font-size: 18px;
+                            position: relative;
+                            top: -2.5px;
+                            cursor: pointer;
+                            border-radius: 5px;
+
+                            &:hover {
+                                outline: none;
+                                color: $primary-color;
+                            }
+
+                            option {
+                                cursor: pointer;
+                                background-color: $border;
+                                border: none;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .time {
+                        margin-top: 10px;
+                        margin-right: 15px;
+                        color: $font-color;
+                        font-weight: bold;
+                        user-select: none;
+
+                        .middle_line {
+                            color: $font-color;
+                        }
+                    }
+
+                    .fullscreen {
+                        cursor: pointer;
+                        .fa-expand:hover {
+                            color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.video_fullscreen {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
