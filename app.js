@@ -96,7 +96,7 @@ function openFullscreen(e) {
     video.classList.add('video_fullscreen');
 }
 
-function closeFullscreen() {
+function closeFullscreen(e) {
     if (document.exitFullscreen) {
         document.exitFullscreen();
     }
